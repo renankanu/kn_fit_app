@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.com.renankanu.kn_fit_app">
    <application
-        android:label="kn_fit_app"
+        android:label="Kn Fit"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
