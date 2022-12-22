@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../core/colors.dart';
@@ -10,6 +11,9 @@ class AppTheme {
     visualDensity: VisualDensity.adaptivePlatformDensity,
     scaffoldBackgroundColor: Colors.black,
     indicatorColor: Colors.white,
+    appBarTheme: const AppBarTheme(
+      systemOverlayStyle: SystemUiOverlayStyle.light,
+    ),
     colorScheme: const ColorScheme.light().copyWith(
       primary: AppColors.corduroy,
       secondary: AppColors.berylGreen,
