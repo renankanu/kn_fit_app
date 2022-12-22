@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-abstract class AppColor {
+abstract class AppColors {
   static const Color berylGreen = Color(0xFFCDE7BE);
   static const Color ebonyClay = Color(0xFF2D3047);
   static const Color steelGray = Color(0xFF232033);
