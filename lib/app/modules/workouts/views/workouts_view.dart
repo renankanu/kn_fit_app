@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kn_fit_app/app/core/widgets/base_app_bar.dart';
+import 'package:kn_fit_app/app/core/core.dart';
 
-import '../controllers/home_controller.dart';
+import '../controllers/workouts_controller.dart';
 
-class HomeView extends GetView<HomeController> {
-  const HomeView({Key? key}) : super(key: key);
+class WorkoutsView extends GetView<WorkoutsController> {
+  const WorkoutsView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
       appBar: BaseAppBar(
-        title: 'Home',
-        isShowBackButton: false,
+        title: 'WorkoutsView',
       ),
       body: Center(
         child: Text(
-          'HomeView is working',
+          'WorkoutsView is working',
           style: TextStyle(fontSize: 20),
         ),
       ),

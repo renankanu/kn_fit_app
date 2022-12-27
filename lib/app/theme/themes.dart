@@ -9,7 +9,6 @@ class AppTheme {
     primaryColor: AppColors.ebonyClay,
     visualDensity: VisualDensity.adaptivePlatformDensity,
     scaffoldBackgroundColor: Colors.black,
-    indicatorColor: Colors.white,
     colorScheme: const ColorScheme.light().copyWith(
       primary: AppColors.corduroy,
       secondary: AppColors.berylGreen,
