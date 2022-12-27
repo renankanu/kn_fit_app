@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kn_fit_app/app/core/core.dart';
-import 'package:kn_fit_app/app/modules/home/views/home_view.dart';
-import 'package:kn_fit_app/app/modules/profile/views/profile_view.dart';
-import 'package:kn_fit_app/app/modules/workouts/views/workouts_view.dart';
 
+import '../../../routes/app_pages.dart';
 import '../controllers/core_controller.dart';
 
 class CoreView extends GetView<CoreController> {
@@ -12,16 +10,14 @@ class CoreView extends GetView<CoreController> {
 
   @override
   Widget build(BuildContext context) {
-    final pages = [
-      const WorkoutsView(),
-      const HomeView(),
-      const ProfileView(),
-    ];
-
     return Obx(
       () => Scaffold(
         extendBody: true,
-        body: pages[controller.currentIndex],
+        body: Navigator(
+          key: Get.nestedKey(1),
+          initialRoute: Routes.home,
+          onGenerateRoute: controller.onGenerateRoute,
+        ),
         bottomNavigationBar: ClipRRect(
           borderRadius: const BorderRadius.only(
             topRight: Radius.circular(18),
@@ -74,9 +70,7 @@ class CoreView extends GetView<CoreController> {
                 label: 'Perfil',
               ),
             ],
-            onTap: (index) {
-              controller.currentIndex = index;
-            },
+            onTap: controller.onChangePage,
           ),
         ),
       ),

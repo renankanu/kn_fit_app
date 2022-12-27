@@ -8,14 +8,15 @@ class WorkoutsView extends GetView<WorkoutsController> {
   const WorkoutsView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: BaseAppBar(
-        title: 'WorkoutsView',
+    return Scaffold(
+      appBar: const BaseAppBar(
+        title: 'Treinos',
+        isShowBackButton: false,
       ),
       body: Center(
         child: Text(
-          'WorkoutsView is working',
-          style: TextStyle(fontSize: 20),
+          controller.currentIndex.toString(),
+          style: const TextStyle(fontSize: 20),
         ),
       ),
     );
