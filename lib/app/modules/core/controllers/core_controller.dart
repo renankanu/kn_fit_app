@@ -10,13 +10,13 @@ import '../../profile/bindings/profile_binding.dart';
 import '../../workouts/bindings/workouts_binding.dart';
 
 class CoreController extends GetxController {
-  final RxInt _currentIndex = RxInt(1);
+  final RxInt _currentIndex = RxInt(0);
 
   int get currentIndex => _currentIndex.value;
 
   set currentIndex(int value) => _currentIndex.value = value;
 
-  final pages = <String>[Routes.workouts, Routes.home, Routes.profile];
+  final pages = <String>[Routes.home, Routes.workouts, Routes.profile];
 
   Route? onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {

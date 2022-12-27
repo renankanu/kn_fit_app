@@ -30,19 +30,6 @@ class CoreView extends GetView<CoreController> {
             backgroundColor: AppColors.steelGray,
             unselectedItemColor: AppColors.tiara,
             items: [
-              const BottomNavigationBarItem(
-                icon: Image(
-                  image: AssetImage(AppImages.icBarbell),
-                  color: AppColors.tiara,
-                  height: 24,
-                ),
-                activeIcon: Image(
-                  image: AssetImage(AppImages.icBarbell),
-                  color: AppColors.berylGreen,
-                  height: 26,
-                ),
-                label: 'Treinos',
-              ),
               BottomNavigationBarItem(
                 icon: Image.asset(
                   AppImages.icHome,
@@ -55,6 +42,19 @@ class CoreView extends GetView<CoreController> {
                   height: 26,
                 ),
                 label: 'Home',
+              ),
+              BottomNavigationBarItem(
+                icon: Image.asset(
+                  AppImages.icBarbell,
+                  color: AppColors.tiara,
+                  height: 24,
+                ),
+                activeIcon: Image.asset(
+                  AppImages.icBarbell,
+                  color: AppColors.berylGreen,
+                  height: 26,
+                ),
+                label: 'Treinos',
               ),
               BottomNavigationBarItem(
                 icon: Image.asset(
