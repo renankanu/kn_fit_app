@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:kn_fit_app/app/core/core.dart';
 
+import '../../../routes/app_pages.dart';
 import '../controllers/login_controller.dart';
 
 class LoginView extends GetView<LoginController> {
@@ -14,7 +15,7 @@ class LoginView extends GetView<LoginController> {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(AppImages.loginTwo),
+            image: AssetImage(AppImages.loginThree),
             fit: BoxFit.cover,
           ),
         ),
@@ -56,8 +57,11 @@ class LoginView extends GetView<LoginController> {
                       ),
                     ),
                     const SizedBox(height: 16),
-                    const BaseButton(
+                    BaseButton(
                       label: 'Entrar',
+                      onPressed: () {
+                        Get.toNamed(Routes.core);
+                      },
                     ),
                     const SizedBox(height: 16),
                     const Text(

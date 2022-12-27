@@ -1,16 +1,5 @@
-# kn_fit_app
+# Kn Fit APP
 
-A new Flutter project.
+Um app de treinos
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img src="assets/icons/kn_fit.png" alt="Kn Fit APP" style="height: 100px; width:100px;"/>
