@@ -10,7 +10,7 @@ dependencies:
   get: 4.6.5
   flutter: 
     sdk: flutter
-  google_fonts: ^3.0.1
+  google_fonts: ^4.0.1
   cached_network_image: ^3.2.3
 
 dev_dependencies: 
