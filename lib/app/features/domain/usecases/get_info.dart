@@ -9,7 +9,7 @@ class GetInfo {
 
   GetInfo({required this.studentRepository});
 
-  Future<Either<Failure, List<StudentEntity>>> call() async {
+  Future<Either<Failure, StudentEntity>> call() async {
     return await studentRepository.getInfo();
   }
 }
