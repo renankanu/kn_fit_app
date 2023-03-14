@@ -72,14 +72,8 @@ void main() {
       final result = await studentRepositoryImpl.getInfo();
       // assert
       verify(mockRemoteDataSource.getInfoStudent('00'));
-      expect(
-        result,
-        equals(
-          const Left(
-            ConnectionFailure('Connection Failure in getInfo'),
-          ),
-        ),
-      );
+      const failure = Left(ConnectionFailure('Connection Failure in getInfo'));
+      expect(result, equals(failure));
     });
   });
 }
