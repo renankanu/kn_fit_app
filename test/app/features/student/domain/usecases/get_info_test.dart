@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:kn_fit_app/app/features/domain/entities/student_entity.dart';
-import 'package:kn_fit_app/app/features/domain/repositories/student_repository.dart';
-import 'package:kn_fit_app/app/features/domain/usecases/get_info.dart';
+import 'package:kn_fit_app/app/features/student/domain/entities/student_entity.dart';
+import 'package:kn_fit_app/app/features/student/domain/repositories/student_repository.dart';
+import 'package:kn_fit_app/app/features/student/domain/usecases/get_info.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
