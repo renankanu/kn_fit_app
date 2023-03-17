@@ -10,7 +10,7 @@ import 'package:kn_fit_app/app/features/student/data/data/repositories/student_r
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
-import 'student_repository_test.mocks.dart';
+import 'student_repository_impl_test.mocks.dart';
 
 @GenerateMocks([RemoteDataSource])
 void main() {
