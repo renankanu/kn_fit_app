@@ -3,11 +3,11 @@ import 'package:dio/dio.dart';
 import '../../../../core/constants/urls_constant.dart';
 import '../../../../core/errors/exception.dart';
 
-abstract class RemoteDataSource {
+abstract class AuthRemoteDataSource {
   Future<void> authUser({required String email, required String password});
 }
 
-class RemoteDataSourceImpl implements RemoteDataSource {
+class RemoteDataSourceImpl implements AuthRemoteDataSource {
   RemoteDataSourceImpl({required this.dioClient});
 
   final Dio dioClient;

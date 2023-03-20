@@ -6,14 +6,14 @@ import 'package:kn_fit_app/app/features/auth/domain/repositories/auth_repository
 
 import '../../../../core/errors/exception.dart';
 import '../../../../core/errors/failure.dart';
-import '../datasources/remote_data_source.dart';
+import '../datasources/auth_remote_data_source.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
   AuthRepositoryImpl({
     required this.remoteDataSource,
   });
 
-  final RemoteDataSource remoteDataSource;
+  final AuthRemoteDataSource remoteDataSource;
 
   @override
   Future<Either<Failure, void>> login(AuthEntity auth) async {
