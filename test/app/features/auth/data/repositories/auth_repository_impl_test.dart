@@ -30,8 +30,6 @@ void main() {
       password: '123456',
     );
 
-    const tAuthEntity = tAuthModel;
-
     test(
         'shown return a token when the call on remote data source is successful',
         () async {
@@ -39,13 +37,13 @@ void main() {
       when(mockRemoteDataSource.authUser(
         email: anyNamed('email'),
         password: anyNamed('password'),
-      )).thenAnswer((_) async => tAuthEntity);
+      )).thenAnswer((_) async => tAuthModel);
       // act
-      await authRepositoryImpl.login(tAuthEntity);
+      await authRepositoryImpl.login(tAuthModel);
       // assert
       verify(mockRemoteDataSource.authUser(
-        email: tAuthEntity.email,
-        password: tAuthEntity.password,
+        email: tAuthModel.email,
+        password: tAuthModel.password,
       ));
       verifyNoMoreInteractions(mockRemoteDataSource);
     });
@@ -59,11 +57,11 @@ void main() {
         password: anyNamed('password'),
       )).thenThrow(ServerException());
       // act
-      final result = await authRepositoryImpl.login(tAuthEntity);
+      final result = await authRepositoryImpl.login(tAuthModel);
       // assert
       verify(mockRemoteDataSource.authUser(
-        email: tAuthEntity.email,
-        password: tAuthEntity.password,
+        email: tAuthModel.email,
+        password: tAuthModel.password,
       ));
       verifyNoMoreInteractions(mockRemoteDataSource);
       expect(
@@ -82,11 +80,11 @@ void main() {
         const SocketException('Connection Failure in login'),
       );
       // act
-      final result = await authRepositoryImpl.login(tAuthEntity);
+      final result = await authRepositoryImpl.login(tAuthModel);
       // assert
       verify(mockRemoteDataSource.authUser(
-        email: tAuthEntity.email,
-        password: tAuthEntity.password,
+        email: tAuthModel.email,
+        password: tAuthModel.password,
       ));
       verifyNoMoreInteractions(mockRemoteDataSource);
       expect(
