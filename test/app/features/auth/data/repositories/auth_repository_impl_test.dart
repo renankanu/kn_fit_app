@@ -1,5 +1,9 @@
+import 'dart:io';
+
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:kn_fit_app/app/core/errors/exception.dart';
+import 'package:kn_fit_app/app/core/errors/failure.dart';
 import 'package:kn_fit_app/app/features/auth/data/datasources/auth_remote_data_source.dart';
 import 'package:kn_fit_app/app/features/auth/data/models/auth_model.dart';
 import 'package:kn_fit_app/app/features/auth/data/repositories/auth_repository_impl.dart';
@@ -33,8 +37,27 @@ void main() {
         () async {
       // arrange
       when(mockRemoteDataSource.authUser(
-              email: anyNamed('email'), password: anyNamed('password')))
-          .thenAnswer((_) async => tAuthEntity);
+        email: anyNamed('email'),
+        password: anyNamed('password'),
+      )).thenAnswer((_) async => tAuthEntity);
+      // act
+      await authRepositoryImpl.login(tAuthEntity);
+      // assert
+      verify(mockRemoteDataSource.authUser(
+        email: tAuthEntity.email,
+        password: tAuthEntity.password,
+      ));
+      verifyNoMoreInteractions(mockRemoteDataSource);
+    });
+
+    test(
+        'should throw a server failure when the call to remote data source is unsuccessful',
+        () async {
+      // arrange
+      when(mockRemoteDataSource.authUser(
+        email: anyNamed('email'),
+        password: anyNamed('password'),
+      )).thenThrow(ServerException());
       // act
       final result = await authRepositoryImpl.login(tAuthEntity);
       // assert
@@ -42,7 +65,35 @@ void main() {
         email: tAuthEntity.email,
         password: tAuthEntity.password,
       ));
-      expect(result, equals(const Right(tAuthEntity)));
+      verifyNoMoreInteractions(mockRemoteDataSource);
+      expect(
+          result,
+          equals(const Left(
+            ServerFailure('Server Failure in login'),
+          )));
+    });
+
+    test('should return server failure when device has no connection',
+        () async {
+      // arrange
+      when(mockRemoteDataSource.authUser(
+              email: anyNamed('email'), password: anyNamed('password')))
+          .thenThrow(
+        const SocketException('Connection Failure in login'),
+      );
+      // act
+      final result = await authRepositoryImpl.login(tAuthEntity);
+      // assert
+      verify(mockRemoteDataSource.authUser(
+        email: tAuthEntity.email,
+        password: tAuthEntity.password,
+      ));
+      verifyNoMoreInteractions(mockRemoteDataSource);
+      expect(
+          result,
+          equals(const Left(
+            ConnectionFailure('Connection Failure in login'),
+          )));
     });
   });
 }
